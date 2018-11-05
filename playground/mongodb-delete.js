@@ -25,7 +25,11 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp' , (err, db) => {
 
     db.collection('Users').findOneAndDelete( { _id : new ObjectID('5bdac9c1fa7f092715dce88e')}).then( (result) => {
         console.log(result);
+    } , (err) => {
+        console.log('Some error occurred: ', err);
     });
+
+    //Sometimes promise reject need not be handled, but not always  !!
 
 
 
